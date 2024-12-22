@@ -74,6 +74,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LibraryPath>$(LibraryPath)</LibraryPath>
     <OutDir>$(SolutionDir)\Output\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>Intermediate\$(ShortProjectName)\$(Platform)\$(Configuration)\</IntDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -109,7 +110,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\Program Files\MySQL\mysql-connector-c++-8.0.27-winx64_debug\include\jdbc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Program Files\MySQL\mysql-connector-c++-8.0.27-winx64_debug\include\jdbc;$(SolutionDir)Source;$(SolutionDir)Source\Public;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -142,19 +143,21 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="CAuthor.cpp" />
-    <ClCompile Include="CBook.cpp" />
-    <ClCompile Include="CBorrowedRecord.cpp" />
-    <ClCompile Include="CDBInitializer.cpp" />
-    <ClCompile Include="DatabaseProject.cpp" />
-    <ClCompile Include="CUser.cpp" />
+    <ClInclude Include="Source\Public\CAuthor.h" />
+    <ClInclude Include="Source\Public\CBook.h" />
+    <ClInclude Include="Source\Public\CBorrowedRecord.h" />
+    <ClInclude Include="Source\Public\CDBInitializer.h" />
+    <ClInclude Include="Source\Public\CNewClass.h" />
+    <ClInclude Include="Source\Public\CUser.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="CAuthor.h" />
-    <ClInclude Include="CBook.h" />
-    <ClInclude Include="CBorrowedRecord.h" />
-    <ClInclude Include="CDBInitializer.h" />
-    <ClInclude Include="CUser.h" />
+    <ClCompile Include="Source\Private\CAuthor.cpp" />
+    <ClCompile Include="Source\Private\CBook.cpp" />
+    <ClCompile Include="Source\Private\CBorrowedRecord.cpp" />
+    <ClCompile Include="Source\Private\CDBInitializer.cpp" />
+    <ClCompile Include="Source\Private\CNewClass.cpp" />
+    <ClCompile Include="Source\Private\CUser.cpp" />
+    <ClCompile Include="Source\Private\DatabaseProject.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
